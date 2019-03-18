@@ -4,11 +4,7 @@
     <router-link class="link" to="/">User Form</router-link>
     <router-link class="link" to="/login">Admin</router-link>
     </div>
-   <!--  <img class="logo" alt="Vue logo" src="./assets/geospoc.png">
-    <md-button @click="loginUser" v-model="login" class="right">Login/Signup</md-button> -->
-    <!-- <Home msg="Welcome to Your Vue.js App"/>
-    <Login></Login>
- -->
+
  <router-view></router-view>
   </div>
 </template>

@@ -61,7 +61,7 @@ data() {
     	allProfiles:[],
     	searchName:'',
     	searchEmail:'',
-    	api_url:'http://localhost:8000',
+    	api_url:'api',
     	section:'all',
 }
 },

@@ -95,7 +95,7 @@ props: {
     	rating:0,
     	loggedInEmail:'',
     	showLogin:true,
-    	api_url:'http://localhost:8000',
+    	api_url:'api',
       loading: false,
       login: {
         email: "",
@@ -115,25 +115,6 @@ props: {
   },
   methods: {
 
-  	// addComment(email){
-  	// 	console.log("Add Comment called for"+email);
-  	// 	console.log(document.getElementById(email).value);
-  	// 	const url=this.api_url+'/addComment/'+email+'/'+document.getElementById(email).value+'/'+this.loggedInEmail;
-  	// 	this.axios.get(url).then((response)=> {
-  	// 		console.log(response.data);
-  	// 		//this.getAllProfiles();
-  	// 		document.getElementById(email).value='';
-  	// 	})
-  	// },
-  	// addRating(email){
-  	// 	console.log("Add Comment called for"+email);
-  	// 	console.log(document.getElementById(email).value);
-  	// 	const url=this.api_url+'/addRating/'+email+'/'+this.rating+'/'+this.loggedInEmail;
-  	// 	this.axios.get(url).then((response)=> {
-  	// 		console.log(response.data);
-  	// 		this.getAllProfiles();
-  	// 	})
-  	// },
 
   	validateEmail:function(mail)
     {

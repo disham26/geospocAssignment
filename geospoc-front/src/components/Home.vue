@@ -76,7 +76,7 @@ export default {
     coverletter:'',
     attachment:null,
     boolean:true,
-    api_url:'http://localhost:8000',
+    api_url:'api',
     allGood:false,
     error:'',
     showSnackbar: false,

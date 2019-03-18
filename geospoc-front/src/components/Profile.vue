@@ -87,7 +87,7 @@ export default {
 			loggedInEmail:'',
 			userProfile:{},
 			comment:'',
-    	api_url:'http://localhost:8000',
+    	api_url:'api',
     	rating:0,
     	url:'',
 
