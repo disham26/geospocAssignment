@@ -9,10 +9,7 @@
       <md-table-row>
         <md-table-head><b>Name</b></md-table-head>
         <md-table-head>{{userProfile.name}}</md-table-head>
-      </md-table-row>
-      <md-table-row>
-        <md-table-head>Email</md-table-head>
-        <md-table-head>{{userProfile.email}}</md-table-head>
+
       </md-table-row>
       <md-table-row>
         <md-table-head>Email</md-table-head>
@@ -38,6 +35,10 @@
       <md-table-row>
       	<md-table-head>IP address</md-table-head>
       	<md-table-head>{{userProfile.IP}}</md-table-head>
+      </md-table-row>
+      <md-table-row>
+      	<md-table-head>Location</md-table-head>
+      	<md-table-head>{{userProfile.location}}</md-table-head>
       </md-table-row>
     </md-table>
     <div id="pdf">

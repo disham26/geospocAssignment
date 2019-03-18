@@ -43,15 +43,7 @@
       <md-radio v-model="boolean" :value="false">No</md-radio>
 
   </div>
-<!--     <div class="left">
-      <div v-if="boolean">
-        <label class="green">I like working here</label>
-      </div>
-      <div v-else>
-        <label class="red">I dont like working here</label>
-      </div>
-    <md-switch v-model="boolean">Select your preference</md-switch>
-  </div> -->
+
 
 <div style="text-align:unset;"><p  style="width:100px;float:left;border-style:ridge;background-color: green;color:black;text-align: center;">{{captchaText}}</p><span style="float:left;"><md-button @click="makeid()">Reload</md-button></span></div>
         <md-field>
@@ -65,7 +57,7 @@
 
     </md-card>
 
-<md-button class="left md-raised md-primary md-green" @click="checkEmailExists">Send my review</md-button>
+<md-button class="left md-raised md-primary md-green" @click="checkEmailExists">Submit My Application</md-button>
      <md-snackbar :md-position="position" :md-duration="isInfinity ? Infinity : duration" :md-active.sync="showSnackbar" md-persistent>
       <span>{{error}}</span>
     </md-snackbar>
@@ -95,16 +87,34 @@ export default {
     emailExists:false,
     captchaText:'',
     captchaInput:'',
+    ip: '',
+    location:'',
    }
  },
   props: {
     msg: String
   },
   created:function(){
+    var _this = this;
+
+
+      this.axios.get('http://www.geoplugin.net/json.gp').then((response) => {
+       console.log("Ip address result");
+       this.ip=response.data.geoplugin_request;
+       this.location=response.data.geoplugin_city+","+response.data.geoplugin_region;
+
+})
+
+    console.log("This is during created");
     this.makeid();
 
   },
+  mounted: function () {
+
+
+},
   methods:{
+
     makeid:function() {
       var length=5;
       var text = "";
@@ -116,6 +126,8 @@ export default {
 },
     handleFileUpload:function(){
       this.file = this.$refs.file.files[0];
+      console.log("Inside handleFileUpload");
+      console.log(this.$refs.file.files[0]);
 
     },
     validateForm: function(){
@@ -212,6 +224,8 @@ export default {
         formData.append('webAddress',_this.webAddress);
         formData.append('coverletter',_this.coverletter);
         formData.append('boolean',_this.boolean);
+        formData.append('ip',_this.ip);
+        formData.append('location',_this.location);
         const url = _this.api_url+'/submitReview';
         this.axios.post(url, formData, {headers: {
           'Content-type': 'multipart/form-data',
@@ -222,8 +236,9 @@ export default {
         this.email='';
         this.webAddress='';
         this.coverletter='';
-        this.file='';
+        this.file=undefined;
         this.captchaInput='';
+        document.getElementById("file").value = "";
         this.makeid();
       }
   }

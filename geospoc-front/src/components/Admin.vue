@@ -73,9 +73,9 @@ section:function(){
 		case 'reviews':console.log("reviews");
 		this.allProfiles=[];
 		for(var i=0;i<this.profiles.length;i++){
-			if(this.profiles[i].reviews!=null){
-				for(var j=0;j<this.profiles[i].reviews.length;j++){
-					if(this.profiles[i].reviews[j].by==this.email){
+			if(this.profiles[i].ratings!=null){
+				for(var j=0;j<this.profiles[i].ratings.length;j++){
+					if(this.profiles[i].ratings[j].by==this.email){
 						this.allProfiles.push(this.profiles[i]);
 					}
 				}
